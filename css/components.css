@@ -1,0 +1,113 @@
+/* 여러 화면에서 함께 사용하는 Windows 창 / 버튼 */
+.window, .retro-button, .task-button, .start-menu {
+  background: var(--window);
+  box-shadow:
+    inset calc(-1 * var(--edge)) calc(-1 * var(--edge)) 0 #000,
+    inset var(--edge) var(--edge) 0 #fff,
+    inset calc(-1 * var(--edge2)) calc(-1 * var(--edge2)) 0 #9a9a9a,
+    inset var(--edge2) var(--edge2) 0 #f5f5f5;
+}
+.window { padding: calc(12 * var(--u)); position: relative; min-width: 0; }
+.title-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: calc(16 * var(--u)); min-height: calc(50 * var(--u));
+  padding: 0 calc(16 * var(--u));
+  color: white; background: var(--blue);
+  border: 2px solid var(--rim);
+  border-top-color: #a39f9d; border-right-color: #0a0b0a;
+  box-shadow: inset 1px 1px #f6f3f0, inset -1px -1px #020206, 0 1px #fff;
+}
+.title-name { display: flex; align-items: center; gap: calc(16 * var(--u)); min-width: 0; }
+.title-name > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.window-controls { display: flex; align-items: center; gap: calc(4 * var(--u)); margin-left: auto; flex: none; }
+.window-control {
+  display: grid; place-items: center; padding: 0; border: 0; background: transparent;
+  width: calc(40 * var(--u)); height: calc(40 * var(--u));
+}
+.window-control img { width: calc(40 * var(--u)); height: auto; }
+.window-control:hover { background: #3655dc; }
+.window-control:focus-visible { outline-color: white; outline-offset: 1px; }
+.svg-icon { width: calc(var(--icon-size) * var(--u)); height: auto; flex: none; }
+.retro-button, .task-button { border: 0; text-decoration: none; }
+.retro-button {
+  display: inline-flex; justify-content: center; align-items: center;
+  min-height: 42px; padding: 12px 22px; gap: 10px;
+}
+.retro-button:active, .task-button:active, .task-button[aria-expanded="true"] {
+  box-shadow: inset 2px 2px #555, inset -2px -2px #fff; transform: translate(1px,1px);
+}
+.retro-button:disabled { opacity: .5; }
+.window.is-minimized > .window-body { display: none; }
+.window.is-minimized { height: auto !important; min-height: 0 !important; }
+.section-heading {
+  display: flex; align-items: center; justify-content: center;
+  gap: calc(32 * var(--u)); padding: calc(48 * var(--u));
+  color: var(--blue); font-family: var(--font-pixel);
+}
+.section-heading h2 { font-weight: 400; font-size: calc(80 * var(--u)); line-height: 1; }
+.section-description { font-family: var(--font-body); font-size: calc(32 * var(--u)); text-align: center; line-height: 1; }
+.restore-windows { display: block; margin: 24px auto; }
+.modal-window {
+  position: fixed; inset: 0;
+  width: min(1800px, calc(100vw - 64px)); max-width: none;
+  max-height: calc(100dvh - 32px); padding: 14px;
+  border: 0; margin: auto; font-family: var(--font-pixel);
+}
+.modal-window::backdrop, .page-window::backdrop { background: transparent; }
+.modal-window .title-bar { min-height: 48px; padding: 8px 12px; font-size: 20px; }
+.modal-window .window-control { width: 40px; height: 40px; }
+.modal-window .window-control img { width: 40px; height: 40px; }
+.modal-window .window-controls { gap: 6px; }
+.modal-window:focus-visible { outline: none; }
+body.modal-open { overflow: hidden; }
+.modal-scroll { overflow: auto; max-height: calc(100dvh - 150px); padding: 24px; overscroll-behavior: contain; }
+.modal-scroll img { max-width: 100%; height: auto; margin: auto; }
+.status-toast {
+  position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%);
+  z-index: 500; padding: 14px 20px; background: #001ea6; color: #fff;
+  font-family: "Pretendard", sans-serif; font-size: 15px; text-align: center;
+  max-width: calc(100vw - 32px); pointer-events: none;
+}
+.skip-link { position: fixed; z-index: 999; left: 12px; top: -100px; padding: 12px; background: white; color: var(--blue); }
+.skip-link:focus { top: 12px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* 2026-09-26: Figma의 창으로 열리는 화면들. 내용만 스크롤됩니다. */
+.page-window {
+  position: fixed; inset: 0;
+  --design-width: 1920;
+  --u: min(1px, calc((100vw - 32px) / var(--design-width)));
+  --content-top: 43;
+  --content-side: 42;
+  --content-left: var(--content-side);
+  --content-right: var(--content-side);
+  --content-bottom: 59;
+  width: min(calc(var(--design-width) * 1px), calc(100vw - 32px));
+  max-width: none; max-height: calc(100dvh - 32px); margin: auto;
+  padding: calc(18 * var(--u)); border: 0; overflow: hidden;
+  font-family: var(--font-pixel);
+}
+.page-window[open] { display: flex; flex-direction: column; }
+.page-window > .title-bar { flex: none; height: max(34px, calc(60 * var(--u))); }
+.page-window-scroll {
+  min-height: 0; overflow: auto; overscroll-behavior: contain;
+  scrollbar-width: thin; scrollbar-color: #9a9a9a var(--window);
+  padding: calc(var(--content-top) * var(--u)) calc(var(--content-right) * var(--u)) calc(var(--content-bottom) * var(--u)) calc(var(--content-left) * var(--u));
+}
+.page-window-scroll > section { background: #fff; }
+.help-window { --content-top: 21; --content-left: 69; --content-right: 95; --content-bottom: 8; }
+.skills-window { --content-top: 86; --content-bottom: 70; }
+.works-window { --content-top: 63; --content-side: 52.5; --content-bottom: 44; }
+.contact-window { --content-top: 38; --content-side: 82; --content-bottom: 39; }
+.recycle-window { --content-top: 20; --content-side: 57; --content-bottom: 43; }
+.thanks-window {
+  --u: min(1px, calc((100vw - 32px) / 1010), calc((100dvh - 48px) / 892));
+  --content-top: 14; --content-side: 7; --content-bottom: 20;
+  width: calc(1010 * var(--u));
+}
+.page-window.is-maximized, .gallery-modal.is-maximized {
+  width: calc(100vw - 8px); height: calc(100dvh - 8px); max-height: calc(100dvh - 8px);
+}
+.page-window.is-maximized { --u: min(1px, calc((100vw - 8px) / var(--design-width))); }
+.page-window.is-maximized .page-window-scroll { flex: 1; }
+.page-window:focus-visible { outline: none; }

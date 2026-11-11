@@ -1,0 +1,96 @@
+/* 2026-09-30: 최종 Figma 수정 사항. 원본 이미지를 그대로 연결합니다. */
+@media (any-hover: hover) and (any-pointer: fine) {
+  html, body, body *, dialog::backdrop { cursor: url('../img/icons/cursor-default-64.png') 16 7, auto; }
+  html.cursor-pressed, html.cursor-pressed body, html.cursor-pressed body *, html.cursor-pressed dialog::backdrop { cursor: url('../img/icons/cursor-click-64.png') 26 7, pointer; }
+}
+[data-draggable] > .title-bar { touch-action: none; user-select: none; }
+[data-draggable].is-dragging { user-select: none; }
+[data-draggable].was-dragged:not(.is-maximized) { left: var(--drag-left) !important; top: var(--drag-top) !important; right: auto !important; transform: none !important; }
+.hero-copy { color: var(--paint-ink,#000); pointer-events: none; }
+.hero-copy a { pointer-events: auto; }
+.hero-copy h1 a:hover { color: inherit; }
+.paint-palette { position: absolute; left: 10.85%; top: 85.6%; width: 43%; height: 11.3%; display: grid; grid-template-columns: repeat(13,1fr); grid-template-rows: repeat(2,1fr); gap: 0; z-index: 2; }
+.paint-palette button { padding: 0; border: 0; background: transparent; min-width: 0; }
+.paint-palette button:focus-visible { outline: 2px dotted #000; outline-offset: -3px; box-shadow: inset 0 0 0 3px white; }
+.paint-palette button:hover { box-shadow: inset 0 0 0 2px white; }
+.typing-icon-pending { visibility: hidden; }
+.typing-icon-visible { animation: icon-arrive 150ms steps(2,end); }
+@keyframes icon-arrive { from { opacity:0; } to { opacity:1; } }
+.typewriter { display: inline-grid; vertical-align: top; max-width:100%; }
+.typewriter > span { min-width:0; }
+.profile-stage { aspect-ratio: 1800 / 1746; }
+.profile-card { left:calc(847 * var(--u)); top:calc(70 * var(--u)); }
+.photo-window[data-photo-order="0"] { left:calc(325 * var(--u)); top:calc(797 * var(--u)); z-index:1; }
+.photo-window[data-photo-order="1"] { left:calc(104 * var(--u)); top:calc(751 * var(--u)); z-index:2; }
+.photo-window[data-photo-order="2"] { left:calc(192 * var(--u)); top:calc(807 * var(--u)); z-index:3; }
+.photo-window[data-photo-order="3"] { left:calc(253 * var(--u)); top:calc(852 * var(--u)); z-index:4; }
+.help-window { --content-top:21; --content-left:16; --content-right:16; --content-bottom:22; }
+.help { display:flex; flex-direction:column; gap:calc(46 * var(--u)); }
+.help .section-heading { min-height:calc(98 * var(--u)); }
+.help .section-heading h2 { letter-spacing:.08em; }
+.help .section-description { line-height:1.5; }
+.service { gap:calc(36 * var(--u)); }
+.contact-window { --content-side:24; }
+.contact-list > div { grid-template-columns:calc(192 * var(--u)) calc(549 * var(--u)); gap:calc(103 * var(--u)); }
+.recycle-board { aspect-ratio:1650 / 926; }
+.meme { top:calc(var(--y) * 100% / 926); height:calc(var(--h) * 100% / 926); }
+.gallery-track, .gallery-track.is-popup, .gallery-track.is-banner { gap:48px; }
+.inspect-modal.is-image.is-compact { width: min(680px,calc(100vw - 32px)); }
+.inspect-modal.is-compact .modal-scroll { padding:20px; max-height:calc(100dvh - 140px); }
+.inspect-modal.is-compact figure img { width:auto; max-width:100%; max-height: min(60dvh,600px); object-fit:contain; }
+@media (max-width:1100px) {
+  .profile-stage { aspect-ratio:auto; grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .profile-card { position:relative; left:auto; top:auto; grid-column:1/-1; order:-1; }
+  .photo-window[data-photo-order] { left:auto; top:auto; }
+  .help { gap:24px; }
+  .service { gap:28px; }
+  .contact-list > div { grid-template-columns:110px minmax(0,1fr); gap:30px; }
+}
+/* 세로형 태블릿에서는 아이콘 글씨와 환영 창이 겹치지 않게 배치합니다. */
+@media (min-width:768px) and (max-width:1100px) and (min-height:600px) {
+  .desktop-icons { left:10px; top:12px; width:120px; gap:8px; }
+  .desktop-shortcut { width:112px; height:104px; font-size:15px; }
+  .desktop-shortcut img { width:76px; height:76px; }
+  .recycle-shortcut { left:14px; top:464px; width:112px; }
+  .paint-window { left:148px; top:54px; width:calc(100% - 168px); }
+  .welcome-window { left:auto; right:20px; top:min(65dvh,640px); width:244px; height:164px; }
+  .welcome-content { padding:12px 10px; }
+  .welcome-message { font-size:20px; }
+  .welcome-message img { width:55px; height:55px; }
+  .welcome-content > button { margin-top:6px; }
+}
+@media (max-width:767px) {
+  .profile-stage { aspect-ratio:auto; }
+  .about-story { word-break:keep-all; overflow-wrap:break-word; }
+  .about-story > h3 { font-size:22px; text-wrap:balance; }
+  .principles h3 { text-wrap:balance; }
+  .help { gap:16px; }
+  .service { gap:22px; }
+  .help .section-heading { gap:8px; }
+  .help .section-heading h2 { font-size:clamp(21px,6.3vw,30px); letter-spacing:.04em; }
+  .help .section-heading .svg-icon { width:28px; }
+  .gallery-track, .gallery-track.is-popup, .gallery-track.is-banner { gap:24px; }
+  .recycle-board { aspect-ratio:auto; }
+  .meme { height:auto; }
+  .contact-list > div { display:block; }
+  .paint-palette button:focus-visible { outline-width:1px; outline-offset:-1px; box-shadow:none; }
+}
+@media (max-width:360px) and (max-height:640px) and (orientation:portrait) {
+  .welcome-window { top:100px; }
+  .paint-window { --paint-top:230px; }
+}
+@media (min-width:768px) and (max-width:1100px) and (max-height:599px) {
+  .desktop-icons { left:6px; top:8px; width:100px; gap:5px; }
+  .desktop-shortcut { width:100px; height:65px; font-size:12px; }
+  .desktop-shortcut img { width:44px; height:44px; }
+  .recycle-shortcut { left:auto; right:12px; top:8px; width:100px; }
+  .paint-window { left:130px; top:12px; width:min(calc(100% - 350px),calc((100dvh - var(--bar-height) - 100px) * 1.58)); }
+  .welcome-window { left:auto; right:12px; top:96px; width:210px; height:144px; }
+  .welcome-content { padding:6px 4px; }
+  .welcome-message { font-size:18px; }
+  .welcome-message img { width:48px; height:48px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .typing-icon-pending { visibility:visible; }
+  .typing-icon-visible { animation:none; }
+}

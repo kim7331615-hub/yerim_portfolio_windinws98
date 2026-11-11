@@ -1,0 +1,18 @@
+/* 색상과 서체를 바꿀 때 가장 먼저 수정하는 파일입니다. */
+:root {
+  --blue: #001ea6;
+  --window: #e3e3e3;
+  --rim: #bfbebe;
+  --dark-edge: #9a9a9a;
+  --ink: #101010;
+  --white: #fff;
+  --font-pixel: "NeoDunggeunmo", "Malgun Gothic", monospace;
+  /* 피그마의 픽셀 서체가 기본입니다. 본문을 바꾸려면 아래 값을
+     "Pretendard", sans-serif 로 변경하세요. */
+  --font-body: var(--font-pixel);
+  --page-width: 1920px;
+  --u: min(1px, 0.0520833333vw);
+  --edge: clamp(1px, calc(4 * var(--u)), 4px);
+  --edge2: calc(var(--edge) * 2);
+  --bar-height: clamp(48px, calc(80 * var(--u)), 80px);
+}

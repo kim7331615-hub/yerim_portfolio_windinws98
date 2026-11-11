@@ -1,0 +1,14 @@
+/* 브라우저의 기본 여백을 정리합니다. */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body, h1, h2, h3, p, figure, blockquote, dl, dd { margin: 0; }
+button, input { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { color: inherit; cursor: pointer; }
+button:disabled { cursor: default; }
+img { display: block; }
+a { color: inherit; }
+button { border-radius: 0; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 2px dashed #001ea6; outline-offset: 5px; }
+dialog { color: inherit; }

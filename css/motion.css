@@ -1,0 +1,24 @@
+/* Figma 203:1273의 텍스트 메모에 요청된 등장 효과입니다. */
+.reveal-pending { opacity: 0; transform: translateY(18px); pointer-events: none; }
+.reveal-visible { animation: text-arrive 520ms ease-out both; }
+.popup-pending { opacity: 0; transform: scale(.94); pointer-events: none; }
+.popup-visible { animation: window-arrive 220ms steps(3, end) both; transform-origin: center; }
+.typewriter { display: grid; }
+.typewriter > span { grid-area: 1 / 1; }
+.typing-layout { visibility: hidden; }
+.typing-output { white-space: pre-wrap; }
+.is-typing .typing-output::after { content: "▌"; display: inline-block; width: 0; }
+@keyframes text-arrive {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes window-arrive {
+  0% { opacity: 0; transform: scale(.94); }
+  40% { opacity: 1; transform: scale(1.015); }
+  100% { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-pending, .popup-pending { opacity: 1; transform: none; pointer-events: auto; }
+  .reveal-visible, .popup-visible { animation: none; }
+  .is-typing .typing-output::after { content: none; }
+}

@@ -1,0 +1,15 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="791" height="937" viewBox="0 0 791 937" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 5">
+<g id="Polygon 2">
+<path d="M311 4.37096e-08L650 141L791 480L663.5 832.5L311 914L115.5 675.5L21.5 480L55.0001 224L311 4.37096e-08Z" fill="#85BA88"/>
+<mask id="stroke0_0_13" fill="white">
+<path d="M311 4.37096e-08L650 141L791 480L663.5 832.5L311 914L115.5 675.5L21.5 480L55.0001 224L311 4.37096e-08Z"/>
+</mask>
+<path d="M311 4.37096e-08L650 141L791 480L663.5 832.5L311 914L115.5 675.5L21.5 480L55.0001 224L311 4.37096e-08Z" stroke-width="2" stroke="black" mask="url(#stroke0_0_13)"/>
+</g>
+<line id="Line 9" y1="479.5" x2="790" y2="479.5" stroke="black"/>
+<path id="Line 11" d="M52.6484 221.625L667.648 836.625" stroke="black"/>
+<path id="Line 12" d="M93.3512 697.625L649.5 141" stroke="black"/>
+<path id="Line 10" d="M311 4.37114e-08L311 937" stroke="black"/>
+</g>
+</svg>

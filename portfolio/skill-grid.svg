@@ -1,0 +1,15 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="1157.69" height="1157.69" viewBox="0 0 1157.69 1157.69" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 4">
+<g id="Polygon 2">
+<path d="M578.847 0L988.154 169.54L1157.69 578.847L988.154 988.154L578.847 1157.69L169.54 988.154L0 578.847L169.54 169.54L578.847 0Z" fill="#D9D9D9"/>
+<mask id="stroke0_0_4" fill="white">
+<path d="M578.847 0L988.154 169.54L1157.69 578.847L988.154 988.154L578.847 1157.69L169.54 988.154L0 578.847L169.54 169.54L578.847 0Z"/>
+</mask>
+<path d="M578.847 0L988.154 169.54L1157.69 578.847L988.154 988.154L578.847 1157.69L169.54 988.154L0 578.847L169.54 169.54L578.847 0Z" stroke-width="2" stroke="black" mask="url(#stroke0_0_4)"/>
+</g>
+<line id="Line 9" x1="0.657715" y1="578.676" x2="1157.04" y2="578.676" stroke="black"/>
+<path id="Line 11" d="M169.804 169.804L987.89 987.891" stroke="black"/>
+<path id="Line 12" d="M169.804 987.891L987.89 169.804" stroke="black"/>
+<path id="Line 10" d="M578.835 0.329102L578.847 1157.28" stroke="black"/>
+</g>
+</svg>
